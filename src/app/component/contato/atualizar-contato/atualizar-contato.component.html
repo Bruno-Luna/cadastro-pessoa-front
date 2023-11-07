@@ -1,0 +1,34 @@
+<div class="d-flex m-3">
+    <button class="btn btn-secondary text-white" [routerLink]="['/contato/' + idPessoa]">
+        Voltar
+    </button>
+</div>
+<div class="card">
+    <div class="card-header">Atualizar Contato</div>
+    <div class="card-body">
+        <div class="container-input">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <label class="form-label">Nome:</label><br>
+                    <input type="text" [(ngModel)]="contato.nome" class=" w-100 mb-3" name="nome"
+                        placeholder="Digite o nome:">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Telefone:</label><br>
+                    <input type="" [(ngModel)]="contato.telefone" maxlength="11" class=" w-100 mb-3" name="telefone"
+                        placeholder="Digite o telefone:">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Email:</label><br>
+                    <input type="email" [(ngModel)]="contato.email" class=" w-100 mb-3" name="datanascimento"
+                        placeholder="Digite o email:">
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary mr-4 text-white" style="float: right;" (click)='atualizarContato()'>
+                        Salvar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

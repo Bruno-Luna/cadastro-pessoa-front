@@ -1,0 +1,21 @@
+<div class="card mt-4">
+    <div class="card-header">Cadastrar Pessoa</div>
+    <div class="card-body">
+        <div class="container-input d-flex flex-column">
+            <label class="form-label">Nome:</label>            
+            <input type="text" [(ngModel)]="pessoa.nome" class=" mb-3" name="nome" placeholder="Digite o nome:">
+            <label class="form-label">CPF:</label>            
+            <input type="text" [(ngModel)]="pessoa.cpf" maxlength="11" class=" mb-3" name="cpf" placeholder="Digite o CPF: (exemplo: 47826539056)" (keypress)="apenasNumero($event)">
+            <label class="form-label">Data de nascimento:</label>            
+            <input type="date" [(ngModel)]="pessoa.datanascimento" class=" mb-3" name="datanascimento">
+        <div class="btn-content">
+            <button class="btn btn-secondary fs-5 text-white" routerLink='/'>
+                Voltar
+            </button>
+            <button class="btn btn-primary fs-5 text-white" (click)='salvarPessoa()'>
+                Salvar
+            </button>
+        </div>
+        </div>
+    </div>
+  </div>

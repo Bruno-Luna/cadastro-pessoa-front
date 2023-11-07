@@ -1,0 +1,62 @@
+<div class="d-flex m-3">
+  <button class="btn btn-secondary text-white" routerLink='/'>
+    Voltar
+  </button>
+</div>
+<div class="card">
+  <div class="card-header">Cadastrar Contato</div>
+  <div class="card-body">
+    <div class="container-input">
+      <div class="row align-items-center">
+        <div class="col-md-3">
+          <label class="form-label">Nome:</label><br>
+          <input type="text" [(ngModel)]="contato.nome" class=" w-100 mb-3" name="nome" placeholder="Digite o nome:">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Telefone:</label><br>
+          <input type="text" [(ngModel)]="contato.telefone" maxlength="11" class=" w-100 mb-3" name="telefone"
+            placeholder="Digite o telefone:" (keypress)="apenasNumero($event)">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Email:</label><br>
+          <input type="email" [(ngModel)]="contato.email" class=" w-100 mb-3" name="datanascimento"
+            placeholder="Digite o email:">
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-primary mr-4 text-white" style="float: right;" (click)='salvarContato()'>
+            Salvar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card-header mt-3">Lista de contatos</div>
+<table class="table table-hover m-3">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of contatoList | paginate:{itemsPerPage: 3, currentPage:pagina}">
+    <tr>
+      <td data-title="Nome:">{{ item.nome }}</td>
+      <td data-title="Nome:">{{ item.telefone }}</td>
+      <td data-title="Nome:">{{ item.email }}</td>
+      <td>
+        <a routerLink="/contato/atualizar/{{ item.id }}">
+          <i class="fas fa-edit" title="Editar"></i>
+        </a>
+        <a (click)='excluirContato(item.id)'>
+          <i class="fas fa-trash-alt" title="Excluir"></i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div id="pagination">
+  <pagination-controls (pageChange)="pagina=$event"></pagination-controls>
+</div>

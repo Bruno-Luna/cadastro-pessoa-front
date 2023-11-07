@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+.fas, .fa, .far {
+    color: black !important;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+}
